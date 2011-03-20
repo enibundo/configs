@@ -103,5 +103,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # add gnat to path
-PATH=$PATH:/usr/gnat/bin
-alias irc='ssh eni_b@pr-ing.com'
+# PATH=$PATH:/usr/gnat/bin
+
