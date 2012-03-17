@@ -1,3 +1,4 @@
+source .bashloginsrc
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -132,10 +133,6 @@ function pastro() {
 
 # DIRS	    
 books='~/Documents/books'
-
-# ssh jussieu  
-alias sshj='ssh 2801342@ssh.ufr-info-p6.jussieu.fr'
-alias sshp='ssh eni_b@eni.pr-ing.com'
 
 alias school='cd ~/Documents/school/MASTER/m1s2'
 
