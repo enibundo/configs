@@ -6,15 +6,15 @@
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -75,16 +75,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias ew='emacs -nw'
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -102,6 +99,58 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# add gnat to path
-# PATH=$PATH:/usr/gnat/bin
+
+PATH=$PATH:~/bin
+
+# FOR LATEX
+export TEXMF=/usr/share/texmf
+
+function sleepndot(){
+ i=0;
+ while [ $i -lt $1 ]; do echo -n "."; sleep 1; i=$(($i+1)); done
+}
+function cls () { cd $1; ls; }
+function pastro() {
+    mepastru=(
+	"*~" 
+	"\#*" 
+	"foo*" 
+	"tmp*" 
+	"kot*");
+    for file in *; do
+	for pattern in ${mepastru[@]}; do
+            
+	    if [[ $file = $pattern ]]; then
+                echo "Ereasing file : $file"
+		sleepndot 3
+		rm -rf $file
+		echo ""
+	    fi
+	done
+    done
+}
+
+# DIRS	    
+books='~/Documents/books'
+
+# ssh jussieu  
+alias sshj='ssh 2801342@ssh.ufr-info-p6.jussieu.fr'
+alias sshp='ssh eni_b@eni.pr-ing.com'
+
+alias school='cd ~/Documents/school/MASTER/m1s2'
+
+# ls in a dir and grep
+# usage : ls foo bar 
+function lsgrep() { 
+    ls $1 | grep -i $2
+}
+
+# find $1  | grep $2
+function findgrep() { 
+    find $1 | grep -i $2
+}
+
+function yd() { 
+    python ~/bin/yd.py $1
+}
 
