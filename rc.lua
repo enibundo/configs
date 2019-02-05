@@ -16,7 +16,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local awful_spawn = require("awful.spawn")
 
 awful_spawn.with_shell("xsettingsd")
-awful_spawn.with_shell("nm-applet")
+awful_spawn.with_shell("nm-tray")
 
 -- Load Debian menu entries
 -- require("debian.menu")
