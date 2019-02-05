@@ -15,8 +15,15 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local awful_spawn = require("awful.spawn")
 
+-- battery
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+
+-- volume
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local volumebar_widget = require("awesome-wm-widgets.volumebar-widget.volumebar")
+
 awful_spawn.with_shell("xsettingsd")
-awful_spawn.with_shell("nm-tray")
+awful_spawn.with_shell("wicd-gtk --tray")
 
 -- Load Debian menu entries
 -- require("debian.menu")
@@ -227,6 +234,9 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+	    battery_widget,
+	    volume_widget,
+	    volumebar_widget,
 	    mytextclock,
 	    s.mylayoutbox,
         },
