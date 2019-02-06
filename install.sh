@@ -6,12 +6,8 @@ cp rc.lua ~/.config/awesome
 # copy .bashrc
 cp .bashrc ~/.bashrc
 
-# install :
-# - caja (file manager gui)
-# - emacs 
-# - double commander (twin file manager)
-# - xsettingsd
-sudo apt-get install caja emacs doublecmd-gtk xsettingsd acpi
+# install some stuff
+sudo apt-get install caja emacs doublecmd-gtk xsettingsd acpi xserver-xorg-input-synaptics
 
 # copy emacs .rc
 cp .emacs ~/
