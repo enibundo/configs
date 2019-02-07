@@ -7,7 +7,7 @@ cp rc.lua ~/.config/awesome
 cp .bashrc ~/.bashrc
 
 # install some stuff
-sudo apt-get install caja emacs doublecmd-gtk xsettingsd acpi xserver-xorg-input-synaptics chromium-browser
+sudo apt-get install caja emacs doublecmd-gtk xsettingsd acpi xserver-xorg-input-synaptics chromium-browser irssi
 
 # copy emacs .rc
 cp .emacs ~/
